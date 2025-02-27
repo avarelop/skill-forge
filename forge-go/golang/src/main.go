@@ -9,16 +9,18 @@ import (
 func main() {
 	// This is how we create an instance of the Employee struct
 	employee := entities.Employee{
-		ID:   1,
-		Name: "John Doe",
-		Age:  30,
+		ID: 1,
+		Person: entities.Person{
+			Name: "John Doe",
+			Age:  30,
+		},
 	}
 
 	// This is how we create an instance of the Employee struct
 	employee_2 := entities.Employee{}
 	employee_2.ID = 2
-	employee_2.Name = "Jane Doe"
-	employee_2.Age = 25
+	employee_2.Person.Name = "Jane Doe"
+	employee_2.Person.Age = 25
 
 	// This is how we create an instance of the Employee struct
 	employee_3 := new(entities.Employee) // This is a pointer to an Employee struct

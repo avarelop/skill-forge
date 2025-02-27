@@ -1,11 +1,8 @@
 package entities
 
-import "fmt"
-
 type Employee struct {
-	ID   int
-	Name string
-	Age  int
+	ID int
+	Person
 }
 
 // This is how we create a method for the Employee struct.
@@ -15,9 +12,11 @@ type Employee struct {
 // It is a function that returns a pointer to an Employee struct.
 func NewEmployee(id int, name string, age int) *Employee {
 	return &Employee{
-		ID:   id,
-		Name: name,
-		Age:  age,
+		ID: id,
+		Person: Person{
+			Name: name,
+			Age:  age,
+		},
 	}
 }
 
