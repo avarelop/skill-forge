@@ -22,7 +22,7 @@ class ProductsService {
 
   async getProductById(id) {
 		// Careful with this, it's a function inside a class.
-    const product = this.findProductById(id);
+    const product = findProductById(this.products, id);
     if (!product) {
       throw boom.notFound("Product not found");
     }
@@ -46,7 +46,7 @@ class ProductsService {
   }
 
   async updateProduct(id, changes) {
-    const index = this.findProductById(id);
+    const index = findProductIndexById(this.products, id);
     if (index === -1) {
       throw boom.notFound("Product not found");
     }
@@ -61,7 +61,7 @@ class ProductsService {
   }
 
 	async deleteProduct(id) {
-		const index = this.findProductById(id);
+		const index = findProductIndexById(this.products, id);
 		if (index === -1) {
 			throw boom.notFound("Product not found");
 		}
@@ -69,8 +69,12 @@ class ProductsService {
 	}
 }
 
-function findProductById(id) {
-	return this.products.find((product) => product.id === id);
+function findProductById(products, id) {
+	return products.find((product) => product.id === id);
+}
+
+function findProductIndexById(products, id) {
+	return products.findIndex((product) => product.id === id);
 }
 
 module.exports = ProductsService;
