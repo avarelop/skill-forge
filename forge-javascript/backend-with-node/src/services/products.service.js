@@ -20,7 +20,7 @@ class ProductsService {
     return products;
   }
 
-  async getProduct(id) {
+  async getProductById(id) {
 		// Careful with this, it's a function inside a class.
     const product = this.findProductById(id);
     if (!product) {

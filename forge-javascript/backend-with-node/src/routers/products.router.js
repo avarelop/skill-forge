@@ -17,7 +17,7 @@ router.get("/:id",
 	async (req, res, next) => {
 		try {
 			const { id } = req.params;
-			const product = await service.getProduct(id)
+			const product = await service.getProductById(id)
 			res.json(product)
 		} catch (error) {
 			next(error) // This will be handled by the error handler middleware
