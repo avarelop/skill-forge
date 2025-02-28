@@ -10,5 +10,9 @@ app.use(express.json());
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
+app.get('/', (req, res) => {
+  res.send('Health check endpoint.');
+});
+
 router(app);
 app.listen(port);
