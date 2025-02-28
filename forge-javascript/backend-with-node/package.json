@@ -6,7 +6,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/index.js",
     "start": "node ./src/index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+		"migrations:generate": "sequelize-cli migration:generate --name",
+		"migrations:migrate": "sequelize-cli db:migrate",
+		"migrations:rollback": "sequelize-cli db:migrate:undo",
+		"migrations:rollback:all": "sequelize-cli db:migrate:undo:all"
   },
   "keywords": [],
   "author": "",
@@ -17,13 +21,19 @@
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-prettier": "^5.2.3",
     "nodemon": "^3.1.9",
-    "prettier": "^3.5.2"
+    "prettier": "^3.5.2",
+    "sequelize-cli": "^6.6.2"
   },
   "dependencies": {
     "@faker-js/faker": "^9.5.0",
     "@hapi/boom": "^10.0.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "joi": "^17.13.3"
+    "joi": "^17.13.3",
+    "mysql2": "^3.12.0",
+    "pg": "^8.13.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.5"
   }
 }
