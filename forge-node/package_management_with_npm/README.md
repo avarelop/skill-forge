@@ -20,8 +20,39 @@ Un paquete es una unidad de software que puede ser instalada, actualizada y elim
 
 ### 2.2 Módulo
 
-Un módulo se refiere a un archivo o conjunto de archivos que pueden ser importados en otros archivos para reutilizar código. Los módulos se dividen en dos categorías principales: los módulos locales y los módulos globales. Los módulos locales se encuentran dentro del mismo proyecto en desarrollo, mientras que los módulos globales se instalan a nivel del sistema operativo y pueden ser utilizados en diferentes proyectos.
+Un módulo se refiere a un archivo o conjunto de archivos que pueden ser importados en otros archivos para reutilizar código. Los módulos se dividen en dos categorías principales: los módulos locales, que se encuentran dentro del mismo proyecto en desarrollo, y los módulos globales, que se instalan a nivel del sistema operativo y pueden ser utilizados en diferentes proyectos.
 
 ## 3. Gestor de Dependencias
 
 Un gestor de dependencias organiza y administra los paquetes que se utilizan en un proyecto, proporcionando herramientas que facilitan y agilizan el proceso de desarrollo. Además de integrar soluciones de terceros que resuelven problemas comunes, este gestor permite la publicación de paquetes propios, optimizando el flujo de trabajo y permitiendo que los desarrolladores se enfoquen en la creación de sus aplicaciones con mayor eficiencia.
+
+## 4. Creación de un Proyecto Node.js con NPM
+
+Para iniciar un proyecto en Node.js utilizando NPM, el primer paso consiste en inicializar el proyecto. Esto se realiza mediante el comando `npm init`, que abre un asistente interactivo para la creación del archivo `package.json` con los valores por defecto. Si se desea evitar la interacción manual y aceptar todos los valores por defecto, se puede utilizar el flag `-y`:
+
+```bash
+npm init -y
+```
+
+Uno de los aspectos importantes al configurar el archivo package.json es definir el "entry point" o punto de entrada del proyecto. Este es el archivo que se ejecutará al iniciar el proyecto, ya sea mediante el comando npm start o utilizando otros scripts definidos en el mismo archivo. Un ejemplo de cómo se especifica el entry point es:
+
+```bash
+"main": "src/index.js"
+```
+
+Asimismo, es posible configurar detalles adicionales como el autor del proyecto. Esto se hace agregando la información correspondiente en el package.json, por ejemplo:
+
+```bash
+"author": "Alvaro Valera <alvaro@samara.energy>"
+```
+
+Estos pasos y configuraciones iniciales son fundamentales para estructurar un proyecto Node.js de manera organizada y facilitar la administración de sus dependencias y scripts a lo largo de su desarrollo.
+
+```bash
+npm install
+```
+
+Este comando instalará las dependencias definidas en el archivo `package.json` y creará una carpeta llamada `node_modules` donde se almacenarán los paquetes instalados.
+
+
+
