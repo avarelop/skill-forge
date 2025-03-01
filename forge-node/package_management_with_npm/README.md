@@ -20,7 +20,7 @@ Un paquete es una unidad de software que puede ser instalada, actualizada y elim
 
 ### 2.2 Módulo
 
-Un módulo se refiere a un archivo o conjunto de archivos que pueden ser importados en otros archivos para reutilizar código. Los módulos se dividen en dos categorías principales: los módulos locales y los módulos globales. Los módulos locales se encuentran dentro del mismo proyecto en desarrollo, mientras que los módulos globales se instalan a nivel del sistema operativo y pueden ser utilizados en diferentes proyectos.
+Un módulo se refiere a un archivo o conjunto de archivos que pueden ser importados en otros archivos para reutilizar código. Los módulos se dividen en dos categorías principales: los módulos locales, que se encuentran dentro del mismo proyecto en desarrollo, y los módulos globales, que se instalan a nivel del sistema operativo y pueden ser utilizados en diferentes proyectos.
 
 ## 3. Gestor de Dependencias
 
