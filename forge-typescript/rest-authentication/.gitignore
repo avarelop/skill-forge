@@ -214,4 +214,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Database
+/db/mongo
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,node
