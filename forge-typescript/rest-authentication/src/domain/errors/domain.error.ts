@@ -1,4 +1,4 @@
-import { ErrorCodes } from "../enums/errorCodes.enum";
+import { ResponseCodes } from "../enums/responseCodes.enum";
 
 export class DomainError extends Error {
   constructor(error: string, message: string) {
@@ -6,23 +6,23 @@ export class DomainError extends Error {
   }
 
   static badRequest(message: string) {
-    return new DomainError(ErrorCodes.BAD_REQUEST, message);
+    return new DomainError(ResponseCodes.BAD_REQUEST, message);
   }
 
   static unauthorized(message: string) {
-    return new DomainError(ErrorCodes.UNAUTHORIZED, message);
+    return new DomainError(ResponseCodes.UNAUTHORIZED, message);
   }
 
   static forbidden(message: string) {
-    return new DomainError(ErrorCodes.FORBIDDEN, message);
+    return new DomainError(ResponseCodes.FORBIDDEN, message);
   }
 
   static notFound(message: string) {
-    return new DomainError(ErrorCodes.NOT_FOUND, message);
+    return new DomainError(ResponseCodes.NOT_FOUND, message);
   }
 
   static internalServerError(message: string) {
-    return new DomainError(ErrorCodes.INTERNAL_SERVER_ERROR, message);
+    return new DomainError(ResponseCodes.INTERNAL_SERVER_ERROR, message);
   }
 }
 
