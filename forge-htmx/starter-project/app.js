@@ -12,11 +12,11 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 // routes
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.send('index.html');
 });
 
-app.get('/books', (req, res) => {
+app.get('/books', (_, res) => {
   res.send(listBooksTemplate());
 });
 
