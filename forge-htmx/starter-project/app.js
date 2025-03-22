@@ -17,7 +17,7 @@ app.get('/', (_, res) => {
 });
 
 app.get('/books', (_, res) => {
-  res.send(listBooksTemplate());
+  res.send(listBooksTemplate(BOOKS_DATA));
 });
 
 app.post('/books', (req, res) => {
@@ -53,7 +53,7 @@ app.delete('/books/:id', (req, res) => {
   const { id } = req.params;
   const idx = BOOKS_DATA.findIndex(book => book.id === id);
   BOOKS_DATA.splice(idx, 1);
-  res.send(listBooksTemplate());
+  res.send(listBooksTemplate(BOOKS_DATA));
 });
 
 app.get('/books/:id/edit', (req, res) => {
