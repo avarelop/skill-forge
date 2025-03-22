@@ -5,71 +5,141 @@ body {
   font-family: "Rubik";
   color: #333;
 }
-main {
-  width: 600px;
+
+/* Container styles */
+.container {
+  max-width: 600px;
   margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
 }
+
+/* Make content expand */
+main {
+  width: 100%;
+}
+
 h1, h2, h3, header {
   text-align: center;
 }
+
 header {
   padding-bottom: 10px;
   margin-bottom: 30px;
 }
+
+.book-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  gap: 10px;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 0; /* Prevents input from overflowing */
+}
+
+.book-list {
+  width: 100%;
+}
+
 .book-list > button {
   width: 100px;
   margin: 20px auto;
   display: block;
 }
+
 .book-list ul {
   padding: 10px 20px;
   list-style-type: none;
   background: #f4f4f4;
   border-radius: 8px;
 }
+
 .book-list li {
   border-bottom: 1px solid #e9e9e9;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px  0;
+  padding: 20px 0;
 }
+
 .book-list li > div {
   margin-right: auto;
 }
+
 .book-list li:last-child {
   border: 0;
 }
+
 .book-list li h3, .books li p {
   text-align: left;
   margin-bottom: 0px;
   margin-top: 4px;
 }
+
 .book-list li p {
   color: #777;
 }
-input, button{
+
+input, button {
   padding: 10px;
   font-family: "Rubik";
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 form {
   display: flex;
   gap: 10px;
   width: 100%;
 }
+
 form button {
   margin-left: auto;
 }
+
 form input {
   flex-grow: 1;
   border: 1px solid #e9e9e9;
   border-radius: 4px;
 }
-.add-book-form{
+
+.add-book-form {
+  width: 100%;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.add-book-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.add-book-form button {
+  width: 200px; /* Make button wider */
+  margin: 0 auto; /* Center the button */
+  padding: 12px; /* Slightly more padding for better proportion */
+}
+
 button {
   background: #ef4444;
   color: white;
