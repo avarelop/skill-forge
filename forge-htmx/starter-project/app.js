@@ -20,11 +20,25 @@ app.get('/books', (_, res) => {
   res.send(listBooksTemplate(BOOKS_DATA));
 });
 
+app.get('/books/search', (req, res) => {
+  const searchTerm = (req.query.search || '').trim().toLowerCase();
+  const filteredBooks = BOOKS_DATA.filter(book => 
+    book.title.toLowerCase().includes(searchTerm)
+  );
+  res.send(listBooksTemplate(filteredBooks));
+});
+
 app.post('/books', (req, res) => {
   const { title, author } = req.body;
+  
+  if (!title || !author) {
+    return res.status(400).send('<div class="error">Title and author are required</div>');
+  }
+
   const newBook = { id: Math.random().toString(), title, author };
   BOOKS_DATA.push(newBook);
-  res.redirect(`/books/${newBook.id}`);
+  
+  res.send(createBookTemplate(newBook));
 });
 
 app.get('/books/:id', (req, res) => {
@@ -47,7 +61,7 @@ app.put('/books/:id', (req, res) => {
   BOOKS_DATA[idx].author = author;
 
   res.send(createBookTemplate(BOOKS_DATA[idx]));
-});
+}); 
 
 app.delete('/books/:id', (req, res) => {
   const { id } = req.params;
