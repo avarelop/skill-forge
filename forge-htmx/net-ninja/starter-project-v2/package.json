@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/app.js",
   "scripts": {
-    "postinstall": "copyfiles -f 'node_modules/htmx.org/dist/htmx.min.js' public/js/",
+    "postinstall": "copyfiles -f 'node_modules/htmx.org/dist/htmx.min.js' public/js/ && copyfiles -f 'node_modules/bootstrap/dist/css/bootstrap.min.css' public/css/",
     "start": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "type": "module",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "express": "^4.21.2",
     "htmx.org": "^1.9.12",
     "mustache-express": "^1.3.2"
