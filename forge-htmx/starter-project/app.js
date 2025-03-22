@@ -1,7 +1,6 @@
 import express from 'express';
 import BOOKS_DATA from './data/data.js';
 import createBookTemplate from './views/book.js';
-import createHomePageTemplate from './views/index.js';
 import listBooksTemplate from './views/listBooks.js';
 
 // create app
@@ -13,7 +12,7 @@ app.use(express.static('public'));
 
 // routes
 app.get('/', (req, res) => {
-  res.send(createHomePageTemplate());
+  res.send('index.html');
 });
 
 app.get('/books', (req, res) => {
