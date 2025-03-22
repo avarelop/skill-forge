@@ -1,26 +1,32 @@
 <div class="book-list">
   {{^books}}
-    <p class="no-books">No books found. Add some books to your reading list!</p>
+  <div class="alert alert-info text-center m-3" role="alert">
+    <i class="bi bi-info-circle me-2"></i>
+    No books found. Add some books to your reading list!
+  </div>
   {{/books}}
-  
-  {{#books}}
-    <ul class="books-ul">
-      <li data-id="{{id}}">
-        <div 
-          class="details"
-          hx-get="/books/{{id}}/edit"
-          hx-target="closest li"
-        >
-          <h3>{{title}}</h3>
-          <p>{{author}}</p>
+
+  <ul class="list-unstyled">
+    {{#books}}
+    <li class="book-item mb-3 border rounded">
+      <div class="p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="ms-2">
+            <h3 class="h5 mb-1">{{title}}</h3>
+            <p class="text-secondary mb-0">{{author}}</p>
+          </div>
+          <div class="actions">
+            <button 
+              class="btn btn-outline-danger btn-sm" 
+              hx-delete="/books/{{id}}" 
+              hx-target="closest .book-item"
+              hx-swap="delete">
+              <i class="bi bi-trash me-2"></i>Delete
+            </button>
+          </div>
         </div>
-        <button 
-          hx-delete="/books/{{id}}" 
-          hx-target="closest li"
-          hx-swap="delete">
-          Delete
-        </button>
-      </li>
-    </ul>
-  {{/books}}
+      </div>
+    </li>
+    {{/books}}
+  </ul>
 </div>
