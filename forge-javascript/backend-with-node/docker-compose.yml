@@ -1,0 +1,32 @@
+# The attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+# version: '3.3'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: backend_with_node
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 9PzRbw4QDhVieoMYJwje
+    ports:
+      - 5432:5432
+    volumes:
+      # Mapeo de volumen para persistir datos de la base de datos.
+      # La ruta está determinada por el propio postgres.
+      - ./database/postgres_data:/var/lib/postgresql
+  mysql:
+    platform: linux/x86_64
+    image: mysql:5
+    environment:
+        MYSQL_DATABASE: backend_with_node
+        MYSQL_USER: mysql
+        MYSQL_PASSWORD: root
+        MYSQL_ROOT_PASSWORD: 9PzRbw4QDhVieoMYJwje
+        MYSQL_PORT: 3306
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database/mysql_data:/var/lib/mysql
+
+volumes:
+  postgres_data:
+  mysql_data:
