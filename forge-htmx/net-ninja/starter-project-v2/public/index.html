@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>My Reading List</h1>
+    </header>
+    <main>
+      <div id="search-form">
+        <button hx-get="/books" hx-swap="beforeend" hx-target="#book-list" hx-indicator="#loading">
+          Get Books
+        </button>
+      </div>
+      <div>
+        <ul id="book-list">
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
