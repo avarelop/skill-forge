@@ -1,0 +1,26 @@
+<div class="book-list">
+  {{^books}}
+    <p class="no-books">No books found. Add some books to your reading list!</p>
+  {{/books}}
+  
+  {{#books}}
+    <ul class="books-ul">
+      <li data-id="{{id}}">
+        <div 
+          class="details"
+          hx-get="/books/{{id}}/edit"
+          hx-target="closest li"
+        >
+          <h3>{{title}}</h3>
+          <p>{{author}}</p>
+        </div>
+        <button 
+          hx-delete="/books/{{id}}" 
+          hx-target="closest li"
+          hx-swap="delete">
+          Delete
+        </button>
+      </li>
+    </ul>
+  {{/books}}
+</div>
