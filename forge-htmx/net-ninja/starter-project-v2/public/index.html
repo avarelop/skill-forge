@@ -4,29 +4,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Reading List App</title>
   <script src="/js/htmx.min.js"></script>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
-<body>
-  <div class="container">
-    <header>
-      <h1>My Reading List</h1>
+<body class="bg-light">
+  <div class="container py-5">
+    <header class="text-center mb-5">
+      <h1 class="display-4 fw-bold text-primary mb-3">My Reading List</h1>
+      <p class="lead text-muted">Keep track of your favorite books</p>
     </header>
-    <main>
-      <div id="search-form">
-        <button hx-get="/books" hx-swap="beforeend" hx-target="#book-list" hx-indicator="#loading">
-          Get Books
-        </button>
+
+    <main class="bg-white shadow-sm rounded p-4 mx-auto" style="max-width: 800px;">
+      <div id="search-form" class="mb-4">
+        <div class="d-flex gap-3">
+          <div class="input-group flex-grow-1">
+            <span class="input-group-text bg-white">
+              <i class="bi bi-search text-muted"></i>
+            </span>
+            <input 
+              type="text" 
+              class="form-control border-start-0 ps-0" 
+              placeholder="Search books by title..."
+              aria-label="Search books"
+            >
+          </div>
+          <button 
+            class="btn btn-primary px-4"
+            style="min-width: 160px;"
+            hx-get="/books" 
+            hx-swap="beforeend" 
+            hx-target="#book-list" 
+            hx-indicator="#loading">
+            <i class="bi bi-book me-2"></i>Load Books
+          </button>
+        </div>
       </div>
-      <div>
-        <ul id="book-list">
+
+      <div class="book-list-container">
+        <ul id="book-list" class="list-group list-group-flush">
+          <!-- Books will be loaded here -->
         </ul>
+        
+        <div id="loading" class="htmx-indicator text-center py-4 d-none">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </div>
     </main>
+
+    <footer class="text-center mt-4">
+      <p class="text-muted small">Built with Bootstrap & HTMX</p>
+    </footer>
   </div>
 </body>
 

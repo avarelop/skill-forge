@@ -17,7 +17,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/books', (_, res) => {
-  console.log('This is a test inside the books route');
   res.render('templates/bookList.template.html', { books: BOOKS_DATA });
 });
 
