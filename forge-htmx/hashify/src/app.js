@@ -12,7 +12,7 @@ const SUPPORTED_ALGORITHMS = [
   'sha1', 
   'sha256',
   'sha512',
-  'sha3',
+  'sha3-256',
   'ripemd160'
 ];
 
@@ -21,12 +21,10 @@ app.get('/', (req, res) => {
 });
 
 app.post('/hash', (req, res) => {
-  const input = req.body['input'] || '';
-  const algorithm = req.body['algorithm'] || 'sha256';
+  const { input } = req.body;
+  const { algorithm } = req.body;
 
-  console.log(req.body);
-
-  if (input.length === 0) {
+  if (!input || !algorithm) {
     res.send(`<p id="result">Please enter some text</p>`);
     return;
   }
