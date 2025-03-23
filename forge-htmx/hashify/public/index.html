@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Hashify</title>
+  <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Hello World</h1>
+  <header>
+    <h1>Hashify</h1>
+  </header>
+
+  <main>
+    <textarea id="text-input" name="text-input" placeholder="Type or paste your text here..." rows="5" 
+      hx-post="/hash"
+      hx-trigger="keyup changed delay:300ms" 
+      hx-target="#result" 
+      hx-swap="outerHTML"
+      hx-include="this">
+    </textarea>
+    <p id="result">Hash will appear here</p>
+  </main>
 </body>
+
 </html>
