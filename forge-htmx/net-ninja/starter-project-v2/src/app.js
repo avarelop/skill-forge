@@ -13,7 +13,7 @@ app.set('view engine', 'html');
 app.set('views', './public');
 
 app.get('/', (req, res) => {
-  res.send('index.html');
+  res.render('index.html');
 });
 
 app.get('/books', (_, res) => {
