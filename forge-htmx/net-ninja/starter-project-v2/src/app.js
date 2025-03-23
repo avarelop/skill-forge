@@ -20,17 +20,35 @@ app.get('/books', (_, res) => {
   res.render('templates/bookList.template.html', { books: BOOKS_DATA });
 });
 
-app.get('/books/:id', (req, res) => {
-  const { id } = req.params;
-  const idx = BOOKS_DATA.findIndex(book => book.id === id);
-
-  if (idx === -1) {
-    res.status(404).send('Book not found');
+app.get('/books/search', (req, res) => {
+  const searchTerm = req.query.search?.toLowerCase() || '';
+  
+  if (!searchTerm) {
+    res.render('templates/bookList.template.html', { books: BOOKS_DATA });
     return;
   }
 
-  const book = BOOKS_DATA[idx];
-  res.render('templates/book.template.html', { book });
+  const filteredBooks = BOOKS_DATA.filter(book => 
+    book.title.toLowerCase().includes(searchTerm) ||
+    book.author.toLowerCase().includes(searchTerm)
+  );
+
+  res.render('templates/bookList.template.html', { books: filteredBooks });
+});
+
+app.get('/books/:id/edit', (req, res) => {
+  const book = BOOKS_DATA.find(book => book.id === req.params.id);
+  res.render('templates/bookForm.template.html', {
+    isEdit: true,
+    book: book
+  });
+});
+
+app.get('/books/new', (_, res) => {
+  res.render('templates/bookForm.template.html', {
+    isEdit: false,
+    book: { title: '', author: '' }
+  });
 });
 
 app.listen(3000, () => {

@@ -1,0 +1,73 @@
+<div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header position-relative">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+          aria-label="Close"></button>
+        <h5 class="modal-title w-100 text-center" id="bookModalLabel">
+          {{#isEdit}}Update Book{{/isEdit}}
+          {{^isEdit}}Add New Book{{/isEdit}}
+        </h5>
+      </div>
+      <div class="modal-body">
+        <form id="bookForm" 
+          {{#isEdit}}
+          hx-put="/books/{{book.id}}"
+          {{/isEdit}}
+          {{^isEdit}}
+          hx-post="/books"
+          {{/isEdit}}
+          hx-target="#book-list" 
+          hx-swap="beforeend">
+          <div class="mb-3 row">
+            <label for="bookTitle" class="col-sm-3 col-form-label fw-bold">
+              Book Title <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-9">
+              <input 
+                type="text" 
+                class="form-control" 
+                id="bookTitle" 
+                name="title" 
+                value="{{book.title}}"
+                aria-describedby="titleHelp"
+                required
+              >
+              <div id="titleHelp" class="form-text mt-1">Enter the complete title of the book</div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="bookAuthor" class="col-sm-3 col-form-label fw-bold">
+              Author <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-9">
+              <input 
+                type="text" 
+                class="form-control" 
+                id="bookAuthor" 
+                name="author" 
+                value="{{book.author}}"
+                aria-describedby="authorHelp"
+                required
+              >
+              <div id="authorHelp" class="form-text mt-1">Enter the author's full name</div>
+            </div>
+          </div>
+          <div class="modal-footer px-0 pb-0">
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+              <i class="bi bi-x-circle me-2"></i>Cancel
+            </button>
+            <button type="submit" class="btn btn-success">
+              {{#isEdit}}
+              <i class="bi bi-check-circle me-2"></i>Update Book
+              {{/isEdit}}
+              {{^isEdit}}
+              <i class="bi bi-plus-circle me-2"></i>Add Book
+              {{/isEdit}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 
