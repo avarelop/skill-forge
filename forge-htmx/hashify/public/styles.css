@@ -1,0 +1,163 @@
+.algorithm-btn {
+  border-radius: 25px;
+  padding: 8px 0;
+  font-size: 14px;
+  transition: all 0.2s;
+  text-align: center;
+  flex: 1;
+  min-width: 90px;
+  margin-right: 0;
+  margin-bottom: 8px;
+}
+
+.algorithm-btn.active {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+}
+
+.algorithm-btn:not(.active) {
+  background-color: white;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+.result-area {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+/* New styles for perfect circle logo */
+.logo-circle {
+  width: 70px;
+  height: 70px;
+  aspect-ratio: 1;
+}
+
+.logo-circle i {
+  font-size: 2rem;
+}
+
+/* Algorithm container for even distribution */
+.algorithm-container {
+  gap: 10px;
+}
+
+/* More rounded corners for input and result areas */
+.form-control,
+.card,
+.card-header,
+.btn {
+  border-radius: 12px;
+}
+
+/* Special treatment for textarea */
+textarea.form-control {
+  border-radius: 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+textarea.form-control:focus {
+  border-color: rgba(13, 110, 253, 0.4);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Result card styling */
+.card.border {
+  overflow: hidden;
+  border-color: #dee2e6;
+  transition: box-shadow 0.3s;
+}
+
+.card.border:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Fix for card-header to match card radius */
+.card-header {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Fix for card-body to match card radius */
+.card-body {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+}
+
+/* Copy button in results area */
+.btn-outline-secondary {
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+/* Result area styling to match original design */
+.result-container {
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.result-header {
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.copy-btn {
+  color: #6c757d;
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  color: #212529;
+  background-color: rgba(108, 117, 125, 0.1);
+}
+
+.copy-btn i {
+  margin-right: 4px;
+}
+
+.result-body {
+  background-color: #f8f9fa;
+  padding: 1.25rem;
+  border-radius: 0 0 12px 12px;
+  min-height: 60px;
+}
+
+#result {
+  word-break: break-all;
+  font-family: monospace;
+  font-style: normal !important;
+  color: #495057 !important;
+}
+
+/* Make textarea match the original design better */
+textarea.form-control {
+  border: 1px solid #e9ecef;
+  background-color: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #495057;
+}
+
+textarea.form-control:focus {
+  background-color: #fff;
+}
+
+/* Character counter styling */
+#char-count {
+  color: #adb5bd;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem !important;
+}
