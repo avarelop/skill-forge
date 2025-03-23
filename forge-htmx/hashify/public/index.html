@@ -15,13 +15,46 @@
   </header>
 
   <main>
-    <textarea id="text-input" name="text-input" placeholder="Type or paste your text here..." rows="5" 
-      hx-post="/hash"
-      hx-trigger="keyup changed delay:300ms" 
-      hx-target="#result" 
-      hx-swap="outerHTML"
-      hx-include="this">
-    </textarea>
+    <!-- Single form containing both input and algorithm selection -->
+      <form hx-post="/hash" hx-target="#result" hx-swap="outerHTML" hx-trigger="change, keyup[target.id=='text-input'] changed delay:300ms">
+      <div>
+        <p>ENTER TEXT TO HASH</p>
+        <textarea id="input-text-area" name="input" placeholder="Type or paste your text here..." rows="5"></textarea>
+      </div>
+      
+      <!-- Hash Algorithm Selector -->
+      <div>
+        <p>SELECT HASH ALGORITHM</p>
+        <div id="algorithm-selector">
+          <label>
+            <input type="radio" name="algorithm" value="md5">
+            MD5
+          </label>
+          <label>
+            <input type="radio" name="algorithm" value="sha1">
+            SHA-1
+          </label>
+          <label>
+            <input type="radio" name="algorithm" value="sha256" checked>
+            SHA-256
+          </label>
+          <label>
+            <input type="radio" name="algorithm" value="sha512">
+            SHA-512
+          </label>
+          <label>
+            <input type="radio" name="algorithm" value="sha3">
+            SHA-3
+          </label>
+          <label>
+            <input type="radio" name="algorithm" value="ripemd160">
+            RIPEMD-160
+          </label>
+        </div>
+        <p id="algorithm-description">Strong 256-bit cryptographic hash function</p>
+      </div>
+    </form>
+    
     <p id="result">Hash will appear here</p>
   </main>
 </body>
