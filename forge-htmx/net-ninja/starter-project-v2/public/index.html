@@ -26,8 +26,17 @@
             <span class="input-group-text bg-white">
               <i class="bi bi-search text-muted"></i>
             </span>
-            <input type="text" class="form-control border-start-0 ps-0" placeholder="Search books by title..."
-              aria-label="Search books">
+            <input 
+              type="text" 
+              class="form-control border-start-0 ps-0" 
+              placeholder="Search books by title..."
+              aria-label="Search books"
+              name="search"
+              hx-get="/books/search"
+              hx-trigger="keyup changed delay:300ms, search"
+              hx-target="#book-list"
+              hx-indicator="#loading"
+            >
           </div>
           <button class="btn btn-primary px-4" style="min-width: 160px;" hx-get="/books" hx-swap="beforeend"
             hx-target="#book-list" hx-indicator="#loading">
@@ -50,55 +59,19 @@
 
       <!-- New Add Book Button -->
       <div class="text-center pt-3 border-top">
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addBookModal">
+        <button 
+          class="btn btn-success" 
+          hx-get="/books/new"
+          hx-target="#modalContainer"
+          hx-trigger="click"
+          hx-swap="innerHTML"
+          hx-on="htmx:afterSwap: bootstrap.Modal.getOrCreateInstance(document.querySelector('#bookModal')).show()">
           <i class="bi bi-plus-circle me-2"></i>Add New Book
         </button>
       </div>
 
-      <!-- Add Book Modal -->
-      <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header position-relative">
-              <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-              <h5 class="modal-title w-100 text-center" id="addBookModalLabel">Add New Book</h5>
-            </div>
-            <div class="modal-body">
-              <form id="addBookForm" hx-post="/books" hx-target="#book-list" hx-swap="beforeend">
-                <div class="mb-3 row">
-                  <label for="bookTitle" class="col-sm-3 col-form-label fw-bold">
-                    Book Title <span class="text-danger">*</span>
-                  </label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="bookTitle" name="title" aria-describedby="titleHelp"
-                      required>
-                    <div id="titleHelp" class="form-text mt-1">Enter the complete title of the book</div>
-                  </div>
-                </div>
-                <div class="mb-3 row">
-                  <label for="bookAuthor" class="col-sm-3 col-form-label fw-bold">
-                    Author <span class="text-danger">*</span>
-                  </label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="bookAuthor" name="author" aria-describedby="authorHelp"
-                      required>
-                    <div id="authorHelp" class="form-text mt-1">Enter the author's full name</div>
-                  </div>
-                </div>
-                <div class="modal-footer px-0 pb-0">
-                  <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
-                    <i class="bi bi-x-circle me-2"></i>Cancel
-                  </button>
-                  <button type="submit" class="btn btn-success">
-                    <i class="bi bi-plus-circle me-2"></i>Add Book
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Modal Container -->
+      <div id="modalContainer"></div>
     </main>
 
     <footer class="text-center mt-4">
