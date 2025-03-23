@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "build:deps:js": "mkdir -p public/js && terser node_modules/htmx.org/dist/htmx.js -o public/js/htmx.min.js --compress --mangle",
+    "build:deps:css": "mkdir -p public/css && copyfiles -f 'node_modules/bootstrap/dist/css/bootstrap.min.css' public/css/ && copyfiles -u 3 'node_modules/bootstrap-icons/font/**/*' public/css/icons/",
+    "build:deps": "npm run build:deps:js && npm run build:deps:css"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.0.0",
+    "bootstrap-icons": "^1.11.3",
+    "express": "^4.19.2",
+    "htmx.org": "^1.9.12"
+  },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "terser": "^5.39.0",
+    "copyfiles": "^2.4.1"
   },
   "type": "module",
-  "dependencies": {
-    "express": "^4.21.2"
-  }
+  "license": "ISC"
 }
