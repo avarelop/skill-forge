@@ -7,16 +7,7 @@
           <h3 class="h5 mb-1">{{title}}</h3>
           <p class="text-secondary mb-0">{{author}}</p>
         </div>
-        <div class="actions">
-          <button 
-            class="btn btn-outline-danger btn-sm" 
-            hx-delete="/books/{{id}}" 
-            hx-target="closest .book-item"
-            hx-swap="delete">
-            <i class="bi bi-trash me-2"/>
-            Delete
-          </button>
-        </div>
+        {{> bookActions}}
       </div>
     </div>
   </li>

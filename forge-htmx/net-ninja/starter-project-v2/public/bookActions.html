@@ -1,0 +1,15 @@
+<button 
+  class="btn btn-outline-primary btn-sm me-2"
+  hx-get="/books/edit/{{id}}"
+  hx-target="closest .book-item">
+  <i class="bi bi-pencil me-2"></i>
+  Edit
+</button>
+<button 
+  class="btn btn-outline-danger btn-sm" 
+  hx-delete="/books/{{id}}" 
+  hx-target="closest .book-item"
+  hx-swap="delete">
+  <i class="bi bi-trash me-2"></i>
+  Delete
+</button> 
