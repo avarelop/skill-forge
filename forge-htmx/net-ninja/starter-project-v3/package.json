@@ -1,0 +1,23 @@
+{
+  "name": "htmx-for-beginners",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:deps": "mkdir -p public/js && terser node_modules/htmx.org/dist/htmx.js -o public/js/htmx.min.js --compress --mangle"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "htmx.org": "^1.9.12"
+  },
+  "type": "module",
+  "devDependencies": {
+    "mustache-express": "^1.3.2",
+    "nodemon": "^3.1.9",
+    "terser": "^5.39.0"
+  }
+}
