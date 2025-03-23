@@ -61,7 +61,8 @@ app.delete('/books/:id', (req, res) => {
     return;
   }
 
-  res.render('templates/bookList.template.html', { books: BOOKS_DATA.splice(idx, 1) });
+  BOOKS_DATA.splice(idx, 1);
+  res.render('templates/bookList.template.html', { books: BOOKS_DATA });
 });
 
 app.listen(3000, () => {
