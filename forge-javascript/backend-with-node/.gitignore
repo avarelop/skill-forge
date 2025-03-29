@@ -216,3 +216,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,node
+
+# Database
+database/mysql_data
+database/postgres_data
